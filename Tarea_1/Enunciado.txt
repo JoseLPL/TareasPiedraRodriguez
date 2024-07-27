@@ -1,0 +1,69 @@
+A continuación, se presentan 2 asignaciones para entender y aplicar herramientas de desarrollo de proyectos de programación.
+
+Preguntas Teóricas (20 pts, 2pts c/u)
+1)	¿Explique la principal utilidad de git como herramienta de desarrollo de código?
+1)	Explique la diferencia entre git y github
+2)	¿Qué es un branch?
+3)	En el contexto de github. ¿Qué es un Pull Request?
+4)	¿Qué es un commit?
+5)	Describa lo que sucede al ejecutar la siguiente operación: “git rebase main”.
+6)	Explique que es un “merge conflict” y como lo resolvería.
+7)	¿Qué es una Prueba Unitaria o Unittest en el contexto de desarrollo de software?
+8)	Bajo el contexto de pytest. ¿Cuál es la utilidad de un “assert”?
+9)	Mencione y explique tres errores de formato detectables con Flake8.}
+
+Sección Práctica (55 pts, puntos varían según la sección)
+La sección práctica busca ejercitar las tres herramientas vistas en la sección teórica para esto realice los siguientes pasos:
+1)	Cree un nuevo repositorio público en github. El nombre debe de ser: TareasPrimerApellidoEstudiante1PrimerApellidoEstudiante2. Dentro de este repositorio cree una carpeta llamada “Tarea 1”, todos los documentos de esta tarea mencionados en los siguientes puntos deben ir en esta carpeta. (1.5 pts)
+2)	Suba todas las respuestas de la parte teórica al repositorio como un primer commit, asegúrese de subir las respuestas como un archivo PDF. Asegure usar una descripción intuitiva al realizar su commit. (1.5 pts)
+3)	Utilice pytest para probar completamente una serie de funciones de python. El código por probar debe de ser el siguiente (Total: 10 pts):
+
+Dos métodos distintos (5 pts c/u):
+1.	Un método “operation_selector” recibe tres parámetros: dos números enteros (num1 y num2) y un carácter (op). Posee el siguiente comportamiento.
+  a.	Lee el carácter y según este aplica la operación entre los dos parámetros, posee las siguiente opciones
+    i.	“+”: Suma
+    ii.	“-”: Resta
+    iii.	“*”: Multiplicación
+    iv.	“&”: And lógica
+  b.	Debe verificar que los parámetros num1 y num2 sean números enteros. En caso de no cumplir esta limitación el programa retorna un código de error único.
+  c.	Debe verificar que el parámetro op sea de tipo string. En caso de no cumplir esta limitación el programa retorna un código de error único.
+  d.	Debe verificar que el parámetro op sea alguna de las 4 opciones +, -, *, &. En caso de no cumplir esta limitación el programa retorna un código de error único.
+  e.	El método siempre devuelve dos valores. El código de error/éxito, el resultado de la operación. En los casos con código de error en vez de retornar un número se retorna None.
+2.	Un método “calculo_promedio” que recibe un parámetro de entrada
+  lista_valores:
+    a.	El método calcula el promedio de todos los valores que están en la lista
+    b.	Debe verificar que el parámetro de entrada sea un número, puede ser positivo, negativo, decimal, etc. En caso de no cumplirse retorna un código de error único.
+    c.	Debe verificar que el tamaño de la lista no sea mayor a 10 elementos. En caso de no cumplirse retorna un código de error único.
+    d.	El método retorna dos respuestas. El código de error/éxito y el resultado de la operación en ese orden específico. En los casos con código de error en vez de retornar el resultado se retorna None.
+    Este código debe de ser su propio archivo .py.
+
+Adjunto a este enunciado usted puede encontrar un archivo de Python llamado tarea_1_testing.py. Este archivo contiene los test de pytest que van a ser utilizados para evaluar el código, por cada test que el código pase exitosamente se darán 5pts hasta un total de 20 pts. El archivo de pruebas debe de poder ejecutar su código sin necesidad de ser modificado, para esto contemple las siguientes indicaciones:
+•	El archivo de pruebas contiene la forma en que se debe de llamar el archivo con su código.
+•	El archivo de pruebas explica los códigos de error que se esperan obtener de las funciones
+•	El archivo de pruebas asume que el archivo con el código que define los métodos se encuentra en la misma carpeta.
+•	Usted está en libertad de descargar el archivo de pruebas y correrlo localmente para asegurar el funcionamiento de su código.
+•	Se espera ver lo siguiente al ejecutar el archivo de pruebas:
+
+4)	Use flake8 y asegure que su código no presenta errores de formato. (5 pts)
+5)	Suba el código de funciones y el código de pruebas a su repositorio en github como un commit.
+6)	Cree un branch del master de su repositorio e introduzca un cuarto commit en el cual se agrega un nuevo archivo con 3 errores identificables por flake 8. No puede reutilizar los archivos de los puntos 4 y 5 para esto. (5 pts)
+7)	En el mismo Branch del paso 6 agregue un quinto commit arreglando los errores de flake 8 del paso 6 (5pts)
+8)	Suba el branch a su repositorio de github. NOTA: Esto implica que el master de su repositorio va a estar dos commit por detrás del Branch.
+9)	Realice un pull request para poder llevar el commit de su branch al master. El pull request puede estar mergeado o solo creado. (2 pts)
+
+Instrucciones Generales
+  1)	La tarea debe ser realizada en parejas
+  2)	Fecha de entrega sábado 3 de agosto.
+  3)	Entregables: Link al repositorio de github con todos los archivos y branches solicitados.
+  4)	El repositorio deberá nombrarse como: TareasPrimerApellidoEstudiante1PrimerApellidoEstudiante2, de no seguir esta indicación se le descontarán 10 puntos.
+  5)	Ausencia de comentarios en el código se traducirá a una reducción de 10 puntos de la nota final. Comentarios sustanciales explican los parámetros de entrada y salida de un método, una explicación del método como tal, comentarios dentro del código que orienten al lector para entender la solución.
+  6)	Al TEC digital solo entregan un archivo de texto con el link al repositorio
+
+Recomendaciones
+Usar el tutorial de git conocido como http://gitimmersion.com/ esto provee el conocimiento básico suficiente para realizar la tarea.
+Para entender el concepto de “un código de error” se sugiere observar el estándar de errores de
+sistema de Linux: https://mariadb.com/kb/en/operating-system-error-codes/.
+
+En ocasiones conviene descargar una máquina virtual e instalar Linux. Esto solamente para facilitar el uso de herramientas como pytest desde la terminal.
+Hacer uso de la documentación oficial de pytest: https://docs.pytest.org/en/latest/getting- started.html
+
