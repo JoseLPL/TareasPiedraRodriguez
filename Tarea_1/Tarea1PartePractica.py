@@ -46,7 +46,7 @@ def main():
 
     op = input("Ingresa la operación deseada (+, -, *, &): ").strip()
 
-    codigo_error, resultado = operation_selector(num1, num2, op)
+    codigo_error, resultado = operation_selector(num1, num2, op)  # Se llama a la funcion la cual retorna una tupla
 
     if codigo_error == 0:
         print(f"El resultado de {num1} {op} {num2} es {resultado}.")
@@ -57,8 +57,8 @@ def main():
 
     time.sleep(1)
     input("\n\nPresiona Enter para continuar...")
-    print("\n" * 100)
-    while seguir:
+    print("\n" * 100)  # Limpia la pantalla
+    while seguir:  # Parte del codigo que genera una continuidad en el uso del programa: seguir o salir del programa
         sesigue = input("Desea agragar otra operación: Sí(1)   No(0)\nDigite la opción: ")
         if sesigue == "1":
             print("\n" * 100)
