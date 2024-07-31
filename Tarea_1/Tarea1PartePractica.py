@@ -35,6 +35,44 @@ def operation_selector(num1, num2, op):
     else:
         return 2, None  # Código de error 2: Operación no válida
 
+def calculo_promedio(lista_valores):
+    """
+    Calcula el promedio de una lista digitada por el usuario.
+    La lista debe contener 10 o menos valores.
+    La lista solo puede contener números.
+
+    :param lista_valores: Lista digitada por el usuario.
+    :param error: Estado actual del programa el cual contempla éxito o un determinado error.
+    :param i: Contador para movilizarse en la lista.
+    :param verificador: Valor booleano para determinar si el elemento de la lista es un número.
+    """
+
+    #Definición de párametros base
+    lista= eval(lista_valores)
+    error= "éxito"
+    i= 0
+
+    #Verificación de números en lista
+    while i < len(lista):
+        verificador= isinstance(lista[i], (int, float))
+        if verificador == False:
+            error= "Error 13: ERROR_INVALID_DATA"
+            prom= "None"
+            break
+        i+= 1
+
+    #Operación de promediado 
+    if verificador == True:
+        prom= sum(lista)/len(lista)
+
+    #Verificación de cantidad de elementos en lista
+    if len(lista) > 10:
+        error= "Error 24: ERROR_BAD_LENGTH"
+        prom= "None"
+
+    #Resultados
+    print("Proceso: ", error)
+    print("Resultado: ", prom)
 
 def main():
     try:
@@ -65,7 +103,6 @@ def main():
             main()
         elif sesigue == "0":
             exit()
-
 
 if __name__ == "__main__":
     print("\n" * 100)
