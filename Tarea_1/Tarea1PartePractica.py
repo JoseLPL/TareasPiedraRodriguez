@@ -51,7 +51,7 @@ def calculo_promedio(lista_valores):
     """
 
     # Definición de párametros base
-    lista = eval(lista_valores)
+    lista = lista_valores
     error = 0  # "éxito"
     i = 0
 
@@ -60,7 +60,7 @@ def calculo_promedio(lista_valores):
         verificador = isinstance(lista[i], (int, float))
         if not verificador == 1:
             error = 13  # "Error 13: ERROR_INVALID_DATA"
-            prom = "None"
+            prom = None
             break
         i += 1
 
@@ -71,7 +71,7 @@ def calculo_promedio(lista_valores):
     # Verificación de cantidad de elementos en lista
     if len(lista) > 10:
         error = 24  # "Error 24: ERROR_BAD_LENGTH"
-        prom = "None"
+        prom = None
 
     # Resultados
     return error, prom
