@@ -24,14 +24,14 @@ def operation_selector(num1, num2, op):
     if op == '+':
         return 0, num1 + num2  # Código de éxito 0
     elif op == '-':
-        return 0, num1 - num2  # Código de éxito 0
+        if isinstance(num1, bool) or isinstance (num2, bool):
+            return 1, None
+        else:
+            return 0, num1 - num2  # Código de éxito 0
     elif op == '*':
         return 0, num1 * num2  # Código de éxito 0
     elif op == '&':
-        if num1 in [0, 1] and num2 in [0, 1]:
-            return 0, num1 & num2  # Código de éxito 0
-        else:
-            return 1, None  # Código de error 1: Los números deben ser 0 o 1
+        return 0, num1 & num2  # Código de éxito 0
     else:
         return 3, None  # Código de error 2: Operación no válida
 
@@ -51,27 +51,20 @@ def calculo_promedio(lista_valores):
     """
 
     # Definición de párametros base
-    lista = lista_valores
-    error = 0  # "éxito"
     i = 0
-
     # Verificación de números en lista
-    while i < len(lista):
-        verificador = isinstance(lista[i], (int, float))
-        if not verificador == 1:
-            error = 13  # "Error 13: ERROR_INVALID_DATA"
-            prom = None
-            break
+    while i < len(lista_valores):
+        
+        if not isinstance(lista_valores[i], (int, float)) or isinstance(lista_valores[i], bool):
+            return 13, None  # "Error 13: ERROR_INVALID_DATA"
         i += 1
-
-    # Operación de promediado
-    if verificador is True:
-        prom = sum(lista) / len(lista)
-
     # Verificación de cantidad de elementos en lista
-    if len(lista) > 10:
-        error = 24  # "Error 24: ERROR_BAD_LENGTH"
-        prom = None
+    if len(lista_valores) > 10:
+        return 24, None  # "Error 24: ERROR_BAD_LENGTH"
+    else:
+        # Operación de promediado
+        prom = sum(lista_valores) / len(lista_valores)
+        return 0, prom    
+        
 
-    # Resultados
-    return error, prom
+    
