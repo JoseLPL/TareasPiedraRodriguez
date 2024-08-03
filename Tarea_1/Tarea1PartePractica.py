@@ -24,7 +24,7 @@ def operation_selector(num1, num2, op):
     if op == '+':
         return 0, num1 + num2  # Código de éxito 0
     elif op == '-':
-        if isinstance(num1, bool) or isinstance (num2, bool):
+        if isinstance(num1, bool) or isinstance(num2, bool):
             return 1, None
         else:
             return 0, num1 - num2  # Código de éxito 0
@@ -54,7 +54,6 @@ def calculo_promedio(lista_valores):
     i = 0
     # Verificación de números en lista
     while i < len(lista_valores):
-        
         if not isinstance(lista_valores[i], (int, float)) or isinstance(lista_valores[i], bool):
             return 13, None  # "Error 13: ERROR_INVALID_DATA"
         i += 1
